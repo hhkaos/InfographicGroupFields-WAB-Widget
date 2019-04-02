@@ -17,7 +17,7 @@ define([
     lang, html, query, Popup, jimuUtils, JSON, _templates) {
 
     var templateChooser = declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, Evented], {
-      baseClass: 'jimu-widget-infographic-setting-template-popup',
+      baseClass: 'infographic-group-fields-setting-template-popup',
       templateString: '' +
         '<div>' +
         '<div class="chooser-container" data-dojo-attach-event="click:_onTemplateClick"' +

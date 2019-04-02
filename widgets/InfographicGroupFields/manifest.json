@@ -1,24 +1,15 @@
 {
   "name": "InfographicGroupFields",
-  "2D": true,
-  "3D": false,
+  "type": "widget",
   "platform": "HTML",
   "version": "0.0.1",
   "wabVersion": "2.11",
   "author": "",
   "description": "Enable widget to group by field name",
   "copyright": "",
-  "license": "ISC",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
   "properties": {
-    "inPanel": false,
-    "hasLocale": true,
-    "hasStyle": true,
-    "hasConfig": true,
-    "hasUIFile": true,
-    "hasSettingPage": true,
-    "hasSettingUIFile": true,
-    "hasSettingLocale": true,
-    "hasSettingStyle": true,
-    "IsController": false
+    "keepConfigAfterMapSwitched": false,
+    "hasVersionManager": true
   }
 }

@@ -6,8 +6,8 @@
 	font-style: normal;
 }
 
-.jimu-widget-infographic .indicator-icon,
-.jimu-widget-infographic-setting .indicator-icon {
+.jimu-widget-infographic-group-fields .indicator-icon,
+.infographic-group-fields-setting .indicator-icon {
 
 	/* use !important to prevent issues with browser extensions that change fonts */
 	font-family: 'icomoon' !important;
@@ -21,7 +21,7 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.jimu-widget-infographic .loading {
+.jimu-widget-infographic-group-fields .loading {
 	position: absolute;
 	overflow: hidden;
 	bottom: 4px;
@@ -31,12 +31,12 @@
 	z-index: 101;
 }
 
-.jimu-rtl .jimu-widget-infographic .loading {
+.jimu-rtl .jimu-widget-infographic-group-fields .loading {
 	left: 2px;
 	right: auto;
 }
 
-.jimu-widget-infographic .loading {
+.jimu-widget-infographic-group-fields .loading {
 	font-size: 10px;
 	text-indent: -9999em;
 	border-top: 3px solid rgba(219, 206, 206, 0.7);
@@ -52,13 +52,13 @@
 	border-radius: 8px;
 }
 
-.jimu-widget-infographic .loading:after {
+.jimu-widget-infographic-group-fields .loading:after {
 	border-radius: 50%;
 	width: 24px;
 	height: 24px;
 }
 
-.jimu-widget-infographic .hide {
+.jimu-widget-infographic-group-fields .hide {
 	display: none !important;
 }
 
@@ -206,9 +206,9 @@
 	text-align: left;
 }
 
-.jimu-widget-infographic .infographic-number-dijit,
-.jimu-widget-infographic .infographic-chart-dijit,
-.jimu-widget-infographic .infographic-gauge-dijit {
+.jimu-widget-infographic-group-fields .infographic-number-dijit,
+.jimu-widget-infographic-group-fields .infographic-chart-dijit,
+.jimu-widget-infographic-group-fields .infographic-gauge-dijit {
 	position: relative;
 }
 
