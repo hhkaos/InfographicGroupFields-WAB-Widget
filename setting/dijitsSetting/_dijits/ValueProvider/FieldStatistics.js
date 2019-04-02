@@ -44,13 +44,21 @@ define([
         var type = this.operationSelect.get('value');
         var field;
         if (type !== 'count') {
-          field = this.fieldSelect.get('value');
+          field = this.fieldSelect.get('value')
+          fieldGroupBy = this.fieldSelectGroupBy.get('value');
+          operationSelectGroupField = this.operationSelectGroupField.get('value');
         }
         var config = {
           type: type
         };
         if (field) {
           config.field = field;
+        }
+        if(fieldGroupBy){
+          config.fieldGroupBy = fieldGroupBy;
+        }
+        if(operationSelectGroupField){
+          config.operationSelectGroupField = operationSelectGroupField;
         }
         return config;
       },
@@ -72,6 +80,8 @@ define([
         this._ignoreEvent = true;
         var type = config.type;
         var field = config.field;
+        var fieldGroupBy = config.fieldGroupBy;
+        var operationSelectGroupField = config.operationSelectGroupField;
 
         if (type) {
           utils.updateOptions(this.operationSelect, null, type);
@@ -79,6 +89,14 @@ define([
 
         if (field) {
           utils.updateOptions(this.fieldSelect, null, field);
+        }
+
+        if (fieldGroupBy) {
+          utils.updateOptions(this.fieldSelectGroupBy, null, fieldGroupBy);
+        }
+
+        if (operationSelectGroupField) {
+          utils.updateOptions(this.operationSelectGroupField, null, operationSelectGroupField);
         }
         setTimeout(function() {
           this._ignoreEvent = false;
@@ -89,6 +107,7 @@ define([
         if (definition) {
           this.definition = definition;
           this._fillFieldsSelect(definition);
+          this._fillFieldsSelectGroupBy(definition);
         }
       },
 
@@ -117,6 +136,17 @@ define([
         this.fieldSelect.addOption(fieldOptions);
       },
 
+      _fillFieldsSelectGroupBy: function(definition) {
+        var fields = this._getAllFields(definition);
+        if (!fields) {
+          return;
+        }
+        var fieldOptions = utils.getFieldSelectOptions(fields);
+        this.fieldSelectGroupBy.removeOption(this.fieldSelectGroupBy.getOptions());
+        this.fieldSelectGroupBy.set('value');
+        this.fieldSelectGroupBy.addOption(fieldOptions);
+      },
+
       _getFields: function(definition) {
         if (!definition) {
           return;
@@ -130,6 +160,23 @@ define([
           return f.name !== groupByField;
         });
         return utils.getNumberFields(fields);
+      },
+
+      _getAllFields: function(definition) {
+
+        var validFieldTypes = ['esriFieldTypeDate', 'esriFieldTypeDouble', 'esriFieldTypeInteger', 'esriFieldTypeSingle', 'esriFieldTypeSmallInteger', 'esriFieldTypeString'];
+
+        if (!definition) {
+          return;
+        }
+        var fieldInfos = lang.clone(definition.fields);
+        if (!fieldInfos || !fieldInfos.length) {
+          return;
+        }
+        var fields = fieldInfos.filter(function(f) {
+          return validFieldTypes.indexOf(f.type) !== -1;
+        });
+        return fields;//utils.getNumberFields(fields);
       },
 
       _onOperationChanged: function(operation) {
@@ -147,10 +194,14 @@ define([
 
       _showFieldContainer: function() {
         html.removeClass(this.fieldContaiber, 'hide');
+        html.removeClass(this.filterContainer, 'hide');
+        html.removeClass(this.filterContainerGroupStatistic, 'hide');
       },
 
       _hideFieldContainer: function() {
         html.addClass(this.fieldContaiber, 'hide');
+        html.addClass(this.filterContainer, 'hide');
+        html.addClass(this.filterContainerGroupStatistic, 'hide');
       }
 
     });

@@ -190,6 +190,7 @@ define({
     statistic: "Statistic",
     valueType: "Value type",
     valueField: "Value field",
+    filterValuePerCategory: "Filter value per category",
     fixed: "Fixed",
     sdsTip: "Choose a statistic data configured in Extra data source",
     noSdsTip: "No available statistic data.",

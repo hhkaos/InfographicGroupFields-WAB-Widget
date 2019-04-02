@@ -2781,7 +2781,7 @@ overflow: hidden;
   align-items: center;
 }
 
-.infographic-field-statistics .row.stat-row {
+.infographic-field-statistics .row.stat-row, .margin-bottom {
   margin: 0 0 10px 0;
 }
 
