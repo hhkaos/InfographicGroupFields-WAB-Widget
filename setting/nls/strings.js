@@ -164,6 +164,7 @@ define({
     area: "Area",
     stringsInTemplate: {
       name_number: "Number",
+      name_number_e: "Number Enhanced",
       name_gauge: "Gauge",
       name_vertical_gauge: "Vertical Gauge",
       name_horizontal_gauge: "Horizontal Gauge",
